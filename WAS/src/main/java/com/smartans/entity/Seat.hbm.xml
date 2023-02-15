@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="main.java.com.smartans.entity">
+	<class name="Seat" table="SEAT">
+		<id name="seatNumber" column="SEAT_NUMBER" type="string" length="11" />
+		<property name="extensionNumber" type="string" column="EXTENSION_NUMBER" length="6" unique="true" />
+		<property name="isManagerSeat" column="IS_MANAGER_SEAT" type="boolean" />
+		<!-- EMPLOYEE_ID is FOREIGN KEY IN SEAT table -->
+		<many-to-one name="employee" lazy="false" column="EMPLOYEE_ID" unique="true" class="Employee" />
+	</class>
+</hibernate-mapping>

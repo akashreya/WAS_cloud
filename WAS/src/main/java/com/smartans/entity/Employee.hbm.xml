@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="main.java.com.smartans.entity">
+	<class name="Employee" table="EMPLOYEE">
+		<id name="employeeId" column="EMPLOYEE_ID" type="string" length="8" />
+		<property name="name" type="string" column="NAME" length="50" not-null="true"  />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" type="timestamp" />
+		<!-- DESIGNATION_ID is FOREIGN KEY IN EMPLOYEE table -->
+		<many-to-one name="designation" lazy="false" column="DESIGNATION_ID" class="Designation" />
+	</class>
+</hibernate-mapping>

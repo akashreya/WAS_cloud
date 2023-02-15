@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="main.java.com.smartans.entity">
+	<class name="Designation" table="DESIGNATION">
+		<id name="designationId" column="DESIGNATION_ID" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="designation" type="string" column="DESIGNATION"
+			length="50" />
+		<property name="isManager" column="IS_MANAGER" type="boolean" not-null="true" />
+	</class>
+</hibernate-mapping>

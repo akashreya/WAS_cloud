@@ -2,9 +2,8 @@ services:
   - type: web
     name: was-frontend
     env: static
-    rootDir: ./frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./build
+    buildCommand: chmod +x build.sh && ./build.sh
+    staticPublishPath: ./frontend/build
     routes:
       - type: rewrite
         source: /*

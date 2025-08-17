@@ -5,12 +5,19 @@ echo "Starting build process..."
 echo "Current directory: $(pwd)"
 echo "Contents: $(ls -la)"
 
+# Set absolute path to frontend directory
+PROJECT_ROOT=$(pwd)
+FRONTEND_DIR="$PROJECT_ROOT/frontend"
+
+echo "Project root: $PROJECT_ROOT"
+echo "Frontend directory: $FRONTEND_DIR"
+
 # Navigate to frontend directory
-if [ -d "frontend" ]; then
+if [ -d "$FRONTEND_DIR" ]; then
     echo "Found frontend directory, navigating..."
-    cd frontend
+    cd "$FRONTEND_DIR"
 else
-    echo "Frontend directory not found!"
+    echo "Frontend directory not found at $FRONTEND_DIR!"
     exit 1
 fi
 
@@ -32,6 +39,10 @@ else
     echo "public/index.html not found!"
     exit 1
 fi
+
+# Set environment variables to ensure correct paths
+export PUBLIC_URL="."
+export GENERATE_SOURCEMAP="false"
 
 # Install dependencies and build
 echo "Installing dependencies..."

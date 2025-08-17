@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: workspace-allocation-system
+  
+  datasource:
+    url: jdbc:sqlite:was_database.db
+    driverClassName: org.sqlite.JDBC
+    username: 
+    password: 
+  
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+  
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: 3600
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

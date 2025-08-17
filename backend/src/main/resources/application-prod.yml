@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: workspace-allocation-system
+  
+  datasource:
+    url: jdbc:sqlite:/app/data/was_database.db
+    driverClassName: org.sqlite.JDBC
+    username: 
+    password: 
+  
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+  
+  messages:
+    basename: messages
+    encoding: UTF-8
+    cache-duration: 3600
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+  forward-headers-strategy: framework
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.smartans: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: /app/data/application.log
+
+app:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001}

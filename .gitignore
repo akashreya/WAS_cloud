@@ -90,7 +90,7 @@ out
 
 # Gatsby files
 .cache/
-public
+# public - commented out for React apps (React needs public directory committed)
 
 # Storybook build outputs
 .out

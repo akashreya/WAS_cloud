@@ -1,0 +1,14 @@
+{
+  "name": "workspace-allocation-system",
+  "version": "1.0.0",
+  "description": "Workspace Allocation System - Full Stack Application",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm start",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && mvn clean install"
+  },
+  "keywords": ["workspace", "allocation", "react", "spring-boot"],
+  "author": "WAS Team",
+  "license": "MIT"
+}
